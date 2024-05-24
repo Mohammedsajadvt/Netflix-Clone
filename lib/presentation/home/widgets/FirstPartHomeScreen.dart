@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/constant_values.dart';
 
-class ScreenHome extends StatelessWidget {
-  const ScreenHome({super.key});
+class FirstPartHomeScreen extends StatelessWidget {
+  const FirstPartHomeScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return  Stack(
+    return Stack(
         children: [
           SizedBox(
               width: MediaQuery.of(context).size.width,
@@ -26,12 +28,13 @@ class ScreenHome extends StatelessWidget {
                 const Text('Movies',style: TextStyle(fontSize: size20),),
                  const SizedBox(width: width20,),
                 const Text('My List',style: TextStyle(fontSize: size20),),
-                SizedBox(width: MediaQuery.of(context).size.width/10,)
+                SizedBox(width: MediaQuery.of(context).size.width/10,),
+               
               ],
             ),
-          )
+          ),
+          const Positioned(bottom: 0,left: 0,top: 0,right: 0,child: Align(alignment: Alignment.bottomCenter,child: Text('#2 in Nigeria Today',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),)))
         ],
       );
-    
   }
 }

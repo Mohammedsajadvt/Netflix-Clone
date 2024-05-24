@@ -13,7 +13,7 @@ class BottomNavigation extends StatelessWidget {
     return ValueListenableBuilder(valueListenable: indexChangeNotifier,builder: (context, int newIndex, _) {
       return BottomNavigationBar(onTap: (index){
       indexChangeNotifier.value = index;
-      },elevation: 0,type: BottomNavigationBarType.fixed,unselectedItemColor: grey,selectedItemColor: white,currentIndex: newIndex,items: [
+      },elevation: 0,type: BottomNavigationBarType.fixed,unselectedItemColor: grey,selectedItemColor: white,currentIndex: newIndex,items: const [
     BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
     BottomNavigationBarItem(icon: Icon(Icons.search,),label: "Search"),
     BottomNavigationBarItem(icon: Icon(Icons.photo_library_outlined),label: "Coming Soon"),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/presentation/pages/home/screen_home.dart';
-import 'package:netflix/presentation/pages/splash/screen_splash.dart';
-import 'package:netflix/presentation/pages/user/screen_user.dart';
-import 'package:netflix/presentation/pages/main_page/screen_main.dart';
+import 'package:netflix/presentation/home/screen_home.dart';
+import 'package:netflix/presentation/splash/screen_splash.dart';
+import 'package:netflix/presentation/user/screen_user.dart';
+import 'package:netflix/presentation/main_page/screen_main.dart';
 
 void main() {
   runApp(const MyApp());
