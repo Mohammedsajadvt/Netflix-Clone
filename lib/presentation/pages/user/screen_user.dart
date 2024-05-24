@@ -30,7 +30,7 @@ class ScreenUser extends StatelessWidget {
                         child: Container(child: Column(
                           children: [
                             Image.asset('images/Emenalo.png'),
-                            Text('Emenalo')
+                            const Text('Emenalo')
                           ],
                         )),
                       ),
@@ -41,13 +41,13 @@ class ScreenUser extends StatelessWidget {
                         child: Container(child: Column(
                           children: [
                             Image.asset('images/Onyeka.png'),
-                            Text('Onyeka')
+                            const Text('Onyeka')
                           ],
                         )),
                       ),
                     ),
                   ],),
-                  SizedBox(height: height50,),
+                  const SizedBox(height: height50,),
                   Row(children: [
                     Expanded(
                       child: GestureDetector(
@@ -55,7 +55,7 @@ class ScreenUser extends StatelessWidget {
                         child: Container(child: Column(
                           children: [
                             Image.asset('images/Thelma.png'),
-                            Text('Thelma')
+                            const Text('Thelma')
                           ],
                         )),
                       ),
@@ -66,24 +66,26 @@ class ScreenUser extends StatelessWidget {
                         child: Container(child: Column(
                           children: [
                             Image.asset('images/Kids.png'),
-                            Text('Kids')
+                            const Text('Kids')
                           ],
                         )),
                       ),
                     ),
                   ],),
-                  SizedBox(height: height50,),
+                  const SizedBox(height: height50,),
                   Row(children: [
                     Expanded(
                       child: GestureDetector(
-                        onTap: (){},
-                        child: Container(child: Column(
+                        onTap: (){
+                          Navigator.pushNamed(context, '/home');
+                        },
+                        child: Column(
                           children: [
                             addIcon,
-                            SizedBox(height: height20,),
-                            Text('Add Profile')
+                            const SizedBox(height: height20,),
+                            const Text('Add Profile')
                           ],
-                        )),
+                        ),
                       ),
                     ),
                     Expanded(
