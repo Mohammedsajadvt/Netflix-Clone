@@ -77,7 +77,7 @@ class ScreenUser extends StatelessWidget {
                     Expanded(
                       child: GestureDetector(
                         onTap: (){
-                          Navigator.pushNamed(context, '/home');
+                          Navigator.pushNamed(context, '/main');
                         },
                         child: Column(
                           children: [

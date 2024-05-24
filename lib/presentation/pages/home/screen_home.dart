@@ -6,8 +6,7 @@ class ScreenHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
+    return  Stack(
         children: [
           SizedBox(
               width: MediaQuery.of(context).size.width,
@@ -32,7 +31,7 @@ class ScreenHome extends StatelessWidget {
             ),
           )
         ],
-      ),
-    );
+      );
+    
   }
 }

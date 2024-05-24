@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 // width
@@ -12,3 +13,7 @@ final addIcon = SvgPicture.asset(
 );
 // font
 const size20 = 20.0;
+
+// Colors
+const white = Colors.white;
+const grey = Colors.grey;
