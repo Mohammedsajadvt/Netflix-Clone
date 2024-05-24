@@ -12,7 +12,7 @@ class ScreenHome extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const FirstPartHomeScreen(),
+             FirstPartHomeScreen(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
