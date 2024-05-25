@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/presentation/home/widgets/FirstPartHomeScreen.dart';
-import 'package:netflix/presentation/home/widgets/main_card.dart';
+import 'package:netflix/presentation/widgets/FirstPartHomeScreen.dart';
+import 'package:netflix/presentation/widgets/main_card.dart';
 import 'package:netflix/presentation/widgets/main_title.dart';
 
 class ScreenHome extends StatelessWidget {

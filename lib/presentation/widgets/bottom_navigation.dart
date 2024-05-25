@@ -38,7 +38,7 @@ class BottomNavigation extends StatelessWidget {
               label: "Coming Soon",
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.download),
+              icon: Icon(Icons.download_rounded),
               label: "Downloads",
             ),
             BottomNavigationBarItem(
