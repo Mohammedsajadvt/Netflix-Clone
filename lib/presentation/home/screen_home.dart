@@ -12,7 +12,7 @@ class ScreenHome extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-             FirstPartHomeScreen(),
+             const FirstPartHomeScreen(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -85,49 +85,49 @@ class ScreenHome extends StatelessWidget {
                   child: MainTitle(title: "Continue Watching for Emenalo"),
                 ),
                 const MainCard(
-                  image: "https://media.themoviedb.org/t/p/w220_and_h330_face/sh7Rg8Er3tFcN9BpKIPOMvALgZd.jpg",
+                  
                 ),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   child: MainTitle(title: "Popular on Netflix"),
                 ),
                 const MainCard(
-                  image: "https://media.themoviedb.org/t/p/w220_and_h330_face/z1p34vh7dEOnLDmyCrlUVLuoDzd.jpg",
+                  
                 ),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   child: MainTitle(title: "Trending Now"),
                 ),
                 const MainCard(
-                  image: "https://media.themoviedb.org/t/p/w220_and_h330_face/y3AeW200hqGLxoPyHMDHpzudylz.jpg",
+                  
                 ),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   child: MainTitle(title: "Top 10 in Nigeria Today"),
                 ),
                 const MainCard(
-                  image: "https://media.themoviedb.org/t/p/w220_and_h330_face/6muOqoxmcR1AzHhiKaPUfvvpCIq.jpg",
+                  
                 ),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   child: MainTitle(title: "My List"),
                 ),
                 const MainCard(
-                  image: "https://media.themoviedb.org/t/p/w220_and_h330_face/kDp1vUBnMpe8ak4rjgl3cLELqjU.jpg",
+                 
                 ),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   child: MainTitle(title: "African Movies"),
                 ),
                 const MainCard(
-                  image: "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/mgKwYismEnFI8DHNrZFS9rzm3d2.jpg",
+                  
                 ),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   child: MainTitle(title: "Nollywood Movies & TV"),
                 ),
                 const MainCard(
-                  image: "https://media.themoviedb.org/t/p/w220_and_h330_face/e1J2oNzSBdou01sUvriVuoYp0pJ.jpg",
+                  
                 ),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
@@ -159,14 +159,14 @@ class ScreenHome extends StatelessWidget {
                   child: MainTitle(title: "Watch It Again"),
                 ),
                 const MainCard(
-                  image: "https://media.themoviedb.org/t/p/w220_and_h330_face/tSz1qsmSJon0rqjHBxXZmrotuse.jpg",
+               
                 ),
        const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   child: MainTitle(title: "New Releases"),
                 ),
                 const MainCard(
-                  image: "https://media.themoviedb.org/t/p/w220_and_h330_face/yutiEZ7taGDNau2jGjKIdDwQpDw.jpg",
+                 
                 ),
 
        const Padding(
@@ -174,14 +174,14 @@ class ScreenHome extends StatelessWidget {
                   child: MainTitle(title: "TV Thrillers & Mysteries"),
                 ),
                 const MainCard(
-                  image: "https://media.themoviedb.org/t/p/w220_and_h330_face/nBVYp2xxx2R02n21EGlDky8CgWR.jpg",
+                  
                 ),
        const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   child: MainTitle(title: "US TV Shows"),
                 ),
                 const MainCard(
-                  image: "https://media.themoviedb.org/t/p/w300_and_h450_bestv2/yHy0369g2KaO40D4bqzMwkSbjeC.jpg",
+                  
                 ),
               ],
             ),
