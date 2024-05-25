@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ScreenSearch extends StatelessWidget {
@@ -5,8 +6,13 @@ class ScreenSearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(child: Text('Search'),),
+    return SafeArea(
+      child: Column(
+        children: [
+          CupertinoSearchTextField(),
+          
+        ],
+      ),
     );
   }
 }
