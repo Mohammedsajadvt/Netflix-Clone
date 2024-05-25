@@ -16,5 +16,6 @@ const size20 = 20.0;
 
 // Colors
 const white = Colors.white;
-const grey = Colors.grey;
+const grey = Color(0XFFC4C4C4);
+const search = Color(0XFF424242);
 
