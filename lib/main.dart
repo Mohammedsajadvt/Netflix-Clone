@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/presentation/home/screen_home.dart';
+import 'package:netflix/presentation/search/screen_search.dart';
 import 'package:netflix/presentation/splash/screen_splash.dart';
 import 'package:netflix/presentation/user/screen_user.dart';
 import 'package:netflix/presentation/main_page/screen_main.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
       "/user":(context) => const ScreenUser(),
       "/home":(context)=> const ScreenHome(),
       "/main":(context)=> const Main(),
+      "/search":(context) => const ScreenSearch(),
       },
     );
   }

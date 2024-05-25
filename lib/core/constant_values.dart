@@ -18,4 +18,5 @@ const size20 = 20.0;
 const white = Colors.white;
 const grey = Color(0XFFC4C4C4);
 const lightBlack = Color(0XFF424242);
+const red = Colors.red;
 
