@@ -7,6 +7,7 @@ const width20 = 20.0;
 // height
 const height50 = 50.0;
 const height20 = 20.0;
+const height10 = 10.0;
 // svg
 final addIcon = SvgPicture.asset(
   'images/add-icon.svg',

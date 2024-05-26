@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/Common/utils.dart';
 import 'package:netflix/core/constant_values.dart'; 
-import 'package:netflix/data/model/nowplaying_model.dart'; 
+import 'package:netflix/data/model/MovieModel.dart'; 
 import 'package:netflix/presentation/widgets/main_title.dart';
 
-class NowPlayingMovieWidget extends StatelessWidget {
-  final Future<NowPlayingMovieModel> future;
+class MovieCard extends StatelessWidget {
+  final Future<MovieModel> future;
   final String headline;
 
-  const NowPlayingMovieWidget({super.key, required this.future, required this.headline});
+  const MovieCard({super.key, required this.future, required this.headline});
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<NowPlayingMovieModel>(
+    return FutureBuilder<MovieModel>(
       future: future,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
@@ -28,12 +28,12 @@ class NowPlayingMovieWidget extends StatelessWidget {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: height20,),
+              const SizedBox(height: height20,),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: MainTitle(title: headline),
               ),
-              
+              const SizedBox(height: 10,),
               SizedBox(
                 height: 220,
                 child: ListView.builder(
