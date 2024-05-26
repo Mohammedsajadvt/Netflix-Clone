@@ -45,7 +45,7 @@ class MovieCardWidget extends StatelessWidget {
                       child: Container(
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: NetworkImage('${imageUrl}${data[index].posterPath}'),
+                            image: NetworkImage('$imageUrl${data[index].posterPath}'),
                             fit: BoxFit.cover,
                           ),
                         ),
