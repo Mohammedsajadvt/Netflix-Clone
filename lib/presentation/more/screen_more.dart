@@ -9,10 +9,11 @@ class ScreenMore extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Row(
           children: [
+            SizedBox(width:6,),
             Expanded(
                 child: Container(
               width: 80,
@@ -133,37 +134,29 @@ class ScreenMore extends StatelessWidget {
                   Container(color: white,height: 38,width: 0.4,),
                   Brand(Brands.gmail),
                   Container(color: white,height: 38,width: 0.4,),
-                  Column(children: [
+                  const Column(children: [
                     Text('...'),
                     Text('More')
                   ],)
                 ],),
-              ),
-              
+              ),        
             ],
           ),
         ),
-        Row(children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: Icon(Icons.check,size: 30,),
-          ),
-          SizedBox(width: 10,),
-          Text("MyList",style: TextStyle(fontSize: 20),)
-        ],),
-        Divider(),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              children: [
-                Text('App Settings',style: TextStyle(fontSize: 20)),
-                Text('Account',style: TextStyle(fontSize: 20)),
-                Text('Help',style: TextStyle(fontSize: 20)),
-                Text('Sign Out',style: TextStyle(fontSize: 20))
-              ],
-            ),
+        const SizedBox(height: height20,),
+        const Divider(),
+        const Align(
+          alignment: Alignment.center,
+          child: Column(
+            children: [
+              Text('App Settings',style: TextStyle(fontSize: 20)),
+              SizedBox(height: height10,),
+              Text('Account',style: TextStyle(fontSize: 20)),
+              SizedBox(height: height10,),
+              Text('Help',style: TextStyle(fontSize: 20)),
+              SizedBox(height: height10,),
+              Text('Sign Out',style: TextStyle(fontSize: 20)),
+            ],
           ),
         ) 
       ],
