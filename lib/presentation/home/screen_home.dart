@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/data/model/MovieModel.dart';
+import 'package:netflix/data/model/movie_model.dart';
 import 'package:netflix/data/service/api_service.dart';
-import 'package:netflix/presentation/widgets/FirstPartHomeScreen.dart';
+import 'package:netflix/presentation/widgets/home_screen_card.dart';
 import 'package:netflix/presentation/widgets/movie_card.dart';
 
 
@@ -16,19 +16,17 @@ class ScreenHome extends StatefulWidget {
 
 class _ScreenHomeState extends State<ScreenHome> {
    late Future<MovieModel> upcomingfuture;
-   ApiServicesUpcomingMovie apiServicesUpcomingMovie = ApiServicesUpcomingMovie();
+   ApiServices apiServices = ApiServices();
    late Future<MovieModel> nowplayingfuture;
-   ApiServiceNowPlayingMovie apiServiceNowPlayingMovie = ApiServiceNowPlayingMovie();
    late Future<MovieModel> popularfuture;
-   ApiServicePopularMovies apiServicePopularMovies = ApiServicePopularMovies();
    late Future<MovieModel>  topratedfuture;
-   ApiServiceTopRatedMovie apiServiceTopRatedMovie = ApiServiceTopRatedMovie();
+  
    @override
   void initState() {
-  upcomingfuture = apiServicesUpcomingMovie.getUpcomingMovies();  
-  nowplayingfuture = apiServiceNowPlayingMovie.getNowPlayingMovie();
-  popularfuture = apiServicePopularMovies.getPopularMovies();
-  topratedfuture = apiServiceTopRatedMovie.getTopRatedMovie();
+  upcomingfuture = apiServices.getUpcomingMovies();  
+  nowplayingfuture =  apiServices.getNowPlayingMovie();
+  popularfuture =  apiServices.getPopularMovies();
+  topratedfuture =  apiServices.getTopRatedMovie();
   }
   @override
   Widget build(BuildContext context) {

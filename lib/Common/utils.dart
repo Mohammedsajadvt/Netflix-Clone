@@ -1,3 +1,5 @@
-const apiKey = '9434fd8794234450bf708edf1174f5fb';
+import 'package:netflix/common/api_key.dart';
+
+const apiKey = mykey;
 const imageUrl = 'https://image.tmdb.org/t/p/w500';
 const baseUrl = "https://api.themoviedb.org/3/";
