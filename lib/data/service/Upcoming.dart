@@ -13,7 +13,7 @@ class ApiServicesUpcomingMovie {
     final url = "$baseUrl$endpoint$key";
     final response = await http.get(Uri.parse(url));
     if(response.statusCode == 200){
-     log('Succes response:${response.body}');
+     log('Upcoming:${response.body}');
      return UpcomingMovieModel.fromJson(jsonDecode(response.body));
     }
     throw Exception("Failed to load upcoming movies");

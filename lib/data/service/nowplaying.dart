@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 
 import 'package:netflix/Common/utils.dart';
@@ -13,7 +14,7 @@ class ApiServiceNowPlayingMovie{
     final url = '$baseUrl$endpoint$key';
     final response = await http.get(Uri.parse(url));
     if(response.statusCode==200){
-    print("Success:${response.body}");
+    log("NowPlaying:${response.body}");
     return NowPlayingMovieModel.fromJson(jsonDecode(response.body));
     }
     throw Exception("Failed to loading now playing movies");
