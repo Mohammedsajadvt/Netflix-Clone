@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/constant_values.dart';
 
-
 class ScreenDownloads extends StatelessWidget {
   const ScreenDownloads({super.key});
 
@@ -9,29 +8,29 @@ class ScreenDownloads extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+        child: Center(
+          child: ListView(
+            shrinkWrap: true, // Adjust ListView height to its contents
             children: [
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
                       'Smart Downloads',
-                      style: TextStyle(color: white,fontSize: 24, fontWeight: FontWeight.bold),
+                      style: TextStyle(color: white, fontSize: 24, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 10),
                     Text(
                       'Introducing Downloads For You',
-                      style: TextStyle(color: white,fontSize: 18),
+                      style: TextStyle(color: white, fontSize: 18),
                     ),
                     SizedBox(height: 5),
                     Text(
                       'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.',
-                      style: TextStyle(color: white,fontSize: 14),
-                      textAlign: TextAlign.start,
+                      style: TextStyle(color: white, fontSize: 14),
+                      textAlign: TextAlign.justify,
                     ),
                   ],
                 ),

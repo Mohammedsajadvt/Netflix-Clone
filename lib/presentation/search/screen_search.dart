@@ -109,16 +109,19 @@ class _ScreenSearchState extends State<ScreenSearch> {
                                 physics: const NeverScrollableScrollPhysics(),
                                 itemCount: data.length,
                                 itemBuilder: (context, index) {
-                                  return Container( 
-                                    height: 150,   
-                                   padding: const EdgeInsets.all(5.0),                                
-                                   child: Row(
-                                     children: [
-                                       Image.network('$imageUrl${data[index].posterPath}',),
-                                       const SizedBox(width: 20,),
-                                       Text(data[index].title,maxLines: 2,style:const TextStyle(overflow: TextOverflow.ellipsis),)
-                                     ],
-                                   ),
+                                  return Card(
+                                    child: Container( 
+                                      height: 150,   
+                                     padding: const EdgeInsets.all(5.0),                                
+                                     child: Row(
+                                       children: [
+                                         Image.network('$imageUrl${data[index].posterPath}',),
+                                         const SizedBox(width: 20,),
+                                         Expanded(child: Text(data[index].title,maxLines: 2,style:const TextStyle(overflow: TextOverflow.ellipsis),)),
+                                         IconButton(onPressed: (){}, icon: Icon(Icons.play_circle))
+                                       ],
+                                     ),
+                                    ),
                                   );
                                 },
                               ),
@@ -157,7 +160,8 @@ class _ScreenSearchState extends State<ScreenSearch> {
                                   style: const TextStyle(
                                       fontSize: 14,
                                       overflow: TextOverflow.ellipsis),
-                                )
+                                ),
+                               
                               ],
                             );
                           }),

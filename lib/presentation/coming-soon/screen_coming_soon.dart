@@ -54,7 +54,7 @@ class _ScreenComingSoonState extends State<ScreenComingSoon> {
                     child: Container(                     
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: NetworkImage('$imageUrl${data[index].posterPath}'),
+                          image: NetworkImage('$imageUrl${data[index].backdropPath}'),
                           fit: BoxFit.cover,
                         ),
                       ),
