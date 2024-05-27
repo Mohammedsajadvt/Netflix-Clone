@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/data/model/movie_model.dart';
+import 'package:netflix/data/model/tvseries_model.dart';
 import 'package:netflix/data/service/api_service.dart';
 import 'package:netflix/presentation/widgets/home_screen_card.dart';
+import 'package:netflix/presentation/widgets/main_title.dart';
 import 'package:netflix/presentation/widgets/movie_card.dart';
+import 'package:netflix/presentation/widgets/tv_card.dart';
 
 
 class ScreenHome extends StatefulWidget {
@@ -20,6 +23,10 @@ class _ScreenHomeState extends State<ScreenHome> {
    late Future<MovieModel> nowplayingfuture;
    late Future<MovieModel> popularfuture;
    late Future<MovieModel>  topratedfuture;
+   late Future<TvSeries> airingtodayfuture;
+   late Future<TvSeries> ontheAirfuture;
+   late Future<TvSeries> popularSeriesfuture;
+   late Future<TvSeries> topRatedSeriresfuture;
   
    @override
   void initState() {
@@ -27,6 +34,10 @@ class _ScreenHomeState extends State<ScreenHome> {
   nowplayingfuture =  apiServices.getNowPlayingMovie();
   popularfuture =  apiServices.getPopularMovies();
   topratedfuture =  apiServices.getTopRatedMovie();
+  airingtodayfuture = apiServices.getAiringToday();
+  ontheAirfuture = apiServices.getOnTheAir();
+  popularSeriesfuture = apiServices.getPopular();
+  topRatedSeriresfuture = apiServices.getTopRated();
   }
   @override
   Widget build(BuildContext context) {
@@ -78,7 +89,11 @@ class _ScreenHomeState extends State<ScreenHome> {
                 MovieCard(future: nowplayingfuture, headline: "Now Playing"),
                 MovieCard(future: upcomingfuture, headline: "Upcoming Movies"),
                 MovieCard(future: popularfuture, headline: "Popular on Netflix"),
-                MovieCard(future: topratedfuture, headline: "Top Rated")
+                MovieCard(future: topratedfuture, headline: "Top Rated"),
+                TvCard(future: airingtodayfuture, headline: "Airing Today"),
+                TvCard(future: ontheAirfuture, headline: "On The Hair"),
+                TvCard(future: popularSeriesfuture, headline: "Popular"),
+                TvCard(future: topRatedSeriresfuture, headline: "Top Rated"),
                 ],
               ),
             ),
