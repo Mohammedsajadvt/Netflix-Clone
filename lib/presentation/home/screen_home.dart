@@ -3,7 +3,6 @@ import 'package:netflix/data/model/movie_model.dart';
 import 'package:netflix/data/model/tvseries_model.dart';
 import 'package:netflix/data/service/api_service.dart';
 import 'package:netflix/presentation/widgets/home_screen_card.dart';
-import 'package:netflix/presentation/widgets/main_title.dart';
 import 'package:netflix/presentation/widgets/movie_card.dart';
 import 'package:netflix/presentation/widgets/tv_card.dart';
 

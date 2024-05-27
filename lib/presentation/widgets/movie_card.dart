@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/Common/utils.dart';
-import 'package:netflix/core/constant_values.dart'; 
-import 'package:netflix/data/model/movie_model.dart'; 
+import 'package:netflix/core/constant_values.dart';
+import 'package:netflix/data/model/movie_model.dart';
 import 'package:netflix/presentation/widgets/main_title.dart';
 
 class MovieCard extends StatelessWidget {
@@ -16,7 +16,7 @@ class MovieCard extends StatelessWidget {
       future: future,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Container(); 
+          return Container();
         } else if (snapshot.hasError) {
           return Center(child: Text("Error: ${snapshot.error}"));
         } else if (!snapshot.hasData || snapshot.data!.results.isEmpty) {
@@ -28,12 +28,16 @@ class MovieCard extends StatelessWidget {
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: height20,),
+              const SizedBox(
+                height: height20,
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: MainTitle(title: headline),
               ),
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               SizedBox(
                 height: 220,
                 child: ListView.builder(
@@ -44,12 +48,16 @@ class MovieCard extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.only(right: 8.0),
-                      child: Container(
-                        width: 150,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage('$imageUrl${data[index].posterPath}'),
-                            fit: BoxFit.cover,
+                      child: InkWell(
+                        onTap: () {},
+                        child: Container(
+                          width: 150,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: NetworkImage(
+                                  '$imageUrl${data[index].posterPath}'),
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                       ),
