@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:netflix/common/utils.dart';
+import 'package:netflix/core/utils.dart';
 import 'package:netflix/core/constant_values.dart';
 import 'package:netflix/data/model/movie_model.dart';
 import 'package:netflix/data/model/search_model.dart';
