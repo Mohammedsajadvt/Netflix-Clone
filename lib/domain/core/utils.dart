@@ -1,4 +1,4 @@
-import 'package:netflix/common/api_key.dart';
+import 'package:netflix/domain/core/api_key.dart';
 
 const apiKey = mykey;
 const imageUrl = 'https://image.tmdb.org/t/p/w500';

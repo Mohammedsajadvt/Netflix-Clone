@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/core/constant_values.dart';
+import 'package:netflix/domain/core/constant_values.dart';
+
 
 class ScreenUser extends StatelessWidget {
   const ScreenUser({super.key});

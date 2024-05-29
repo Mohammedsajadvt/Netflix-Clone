@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/Common/utils.dart';
-import 'package:netflix/core/constant_values.dart';
 import 'package:netflix/data/model/movie_model.dart';
-import 'package:netflix/presentation/widgets/main_title.dart';
+import 'package:netflix/domain/core/constant_values.dart';
+import 'package:netflix/domain/core/utils.dart';
+import 'package:netflix/presentation/pages/widgets/main_title.dart';
+
 
 class MovieCard extends StatelessWidget {
   final Future<MovieModel> future;

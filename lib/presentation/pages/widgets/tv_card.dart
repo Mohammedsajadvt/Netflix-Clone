@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:netflix/Common/utils.dart';
-import 'package:netflix/core/constant_values.dart'; 
-import 'package:netflix/data/model/tvseries_model.dart'; 
-import 'package:netflix/presentation/widgets/main_title.dart';
+import 'package:flutter/material.dart'; 
+import 'package:netflix/data/model/tvseries_model.dart';
+import 'package:netflix/domain/core/constant_values.dart';
+import 'package:netflix/domain/core/utils.dart';
+import 'package:netflix/presentation/pages/widgets/main_title.dart'; 
+
 
 class TvCard extends StatelessWidget {
   final Future<TvSeries> future;
