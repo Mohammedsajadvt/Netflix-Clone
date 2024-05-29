@@ -1,33 +1,28 @@
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflix/application/bloc/tv_shows_bloc.dart'; 
 import 'package:netflix/domain/core/constant_values.dart';
 import 'package:netflix/domain/core/utils.dart';
 import 'package:netflix/presentation/pages/widgets/main_title.dart';
 
-import '../../../infrastructure/model/tvseries_model.dart';
-
 
 class TvCard extends StatelessWidget {
-  final Future<TvSeries> future;
+  final TvShowsEvent event;
   final String headline;
 
-  const TvCard({super.key, required this.future, required this.headline});
+  const TvCard({super.key, required this.event, required this.headline});
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<TvSeries>(
-      future: future,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return Container(); 
-        } else if (snapshot.hasError) {
-          return Center(child: Text("Error: ${snapshot.error}"));
-        } else if (!snapshot.hasData || snapshot.data!.results.isEmpty) {
-          return const Center(
-            child: Text('No Data Available'),
-          );
-        } else {
-          var data = snapshot.data!.results;
-          return Column(
+    return BlocProvider(create: (context)=>TvShowsBloc()..add(event),child: BlocBuilder<TvShowsBloc,TvShowsState>(builder: (context,state){
+      if(state is TvShowsLoading){
+       return Container();
+      }else if(state is TvShowError){
+        return Center(child: Text('Erroe:${state.message}'),);
+      }
+      else if(state is TvShowsLoaded){
+        var data = state.show;
+        return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: height20,),
@@ -61,8 +56,11 @@ class TvCard extends StatelessWidget {
               ),
             ],
           );
-        }
-      },
-    );
+      }
+      return Text('No Data Available');
+    }
+    ),);
   }
 }
+
+
