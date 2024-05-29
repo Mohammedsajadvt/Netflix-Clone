@@ -1,7 +1,5 @@
 import 'package:equatable/equatable.dart';
-
-import '../../data/model/movie_model.dart';
-
+import '../../infrastructure/model/movie_model.dart';
 abstract class MovieState extends Equatable {
   @override
   List<Object?> get props => [];

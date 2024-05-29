@@ -1,10 +1,11 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'package:netflix/data/model/movie_model.dart';
 import 'package:http/http.dart' as http;
-import 'package:netflix/data/model/search_model.dart';
-import 'package:netflix/data/model/tvseries_model.dart';
 import 'package:netflix/domain/core/utils.dart';
+
+import '../model/movie_model.dart';
+import '../model/search_model.dart';
+import '../model/tvseries_model.dart';
 
 var key = '?api_key=$apiKey';
 late String endpoint;

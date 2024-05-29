@@ -6,8 +6,8 @@ import 'package:netflix/domain/core/constant_values.dart';
 import 'package:netflix/presentation/pages/widgets/main_title.dart';
 
 import '../../../application/movie/movie_event.dart';
-import '../../../data/service/api_service.dart';
 import '../../../domain/core/utils.dart';
+import '../../../infrastructure/service/api_service.dart';
 
 class MovieCard extends StatelessWidget {
   final String headline;

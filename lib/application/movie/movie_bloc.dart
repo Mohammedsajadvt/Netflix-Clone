@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:netflix/data/service/api_service.dart';
-
+import '../../infrastructure/service/api_service.dart';
 import 'movie_event.dart';
 import 'movie_state.dart';
 

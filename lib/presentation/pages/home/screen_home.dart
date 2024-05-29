@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/application/movie/movie_event.dart';
-import 'package:netflix/data/service/api_service.dart';
 import 'package:netflix/presentation/pages/widgets/movie_card.dart';
-
+import '../../../infrastructure/service/api_service.dart';
 import '../widgets/home_screen_card.dart';
 
 

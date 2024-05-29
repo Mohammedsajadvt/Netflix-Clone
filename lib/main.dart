@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:netflix/application/movie/movie_bloc.dart';
-import 'package:netflix/data/service/api_service.dart';
 import 'package:netflix/presentation/pages/home/screen_home.dart';
 import 'package:netflix/presentation/pages/main_page/screen_main.dart';
 import 'package:netflix/presentation/pages/search/screen_search.dart';
 import 'package:netflix/presentation/pages/splash/screen_splash.dart';
 import 'package:netflix/presentation/pages/user/screen_user.dart';
+import 'infrastructure/service/api_service.dart';
 
 void main() {
   runApp(const MyApp());

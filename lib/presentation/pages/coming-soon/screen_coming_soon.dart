@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
-import 'package:netflix/data/model/movie_model.dart';
-import 'package:netflix/data/service/api_service.dart';
 import 'package:netflix/domain/core/constant_values.dart';
 import 'package:netflix/domain/core/utils.dart';
+import '../../../infrastructure/model/movie_model.dart';
+import '../../../infrastructure/service/api_service.dart';
 
 class ScreenComingSoon extends StatefulWidget {
   const ScreenComingSoon({super.key});
