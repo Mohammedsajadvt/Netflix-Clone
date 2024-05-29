@@ -1,27 +1,19 @@
 import 'package:equatable/equatable.dart';
-import 'package:netflix/data/model/movie_model.dart';
 
+import '../../data/model/movie_model.dart';
 
-abstract class MovieState extends Equatable{
+abstract class MovieState extends Equatable {
   @override
-  
   List<Object?> get props => [];
 }
 
-class MovieInitial extends MovieState {
-  
+class MovieInitial extends MovieState {}
+class MovieLoading extends MovieState {}
+class MovieLoaded extends MovieState {
+  final List<Result> movies;
+  MovieLoaded({required this.movies});
 }
-
-class MovieLoading extends MovieState{
-
+class MovieError extends MovieState {
+  final String message;
+  MovieError({required this.message});
 }
-
-class MovieLoaded extends MovieState{
-List<MovieModel> movie;
-MovieLoaded({required this.movie});
-}
-
-class MovieError extends MovieState{
-
-}
-
