@@ -22,7 +22,7 @@ class MovieCard extends StatelessWidget {
       child: BlocBuilder<MovieBloc, MovieState>(
         builder: (context, state) {
           if (state is MovieLoading) {
-            return Center(child: CircularProgressIndicator(color: Colors.red));
+            return Container();
           } else if (state is MovieError) {
             return Center(child: Text("Error: ${state.message}"));
           } else if (state is MovieLoaded) {

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflix/application/coming%20soon/coming_soon_bloc.dart';
+import 'package:netflix/application/coming%20soon/coming_soon_event.dart';
 import 'package:netflix/application/movie/movie_bloc.dart';
 import 'package:netflix/presentation/pages/home/screen_home.dart';
 import 'package:netflix/presentation/pages/main_page/screen_main.dart';
@@ -22,10 +24,13 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => MovieBloc(ApiServices()),
         ),
+        BlocProvider(
+          create: (context) => ComingSoonBloc(ApiServices())..add(FetchComingSoonMovies()),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'NetFlix Clone',
         theme: ThemeData.dark(),
         initialRoute: "/splash",
         routes: {
