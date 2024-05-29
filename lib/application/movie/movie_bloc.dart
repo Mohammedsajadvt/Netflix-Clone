@@ -3,9 +3,6 @@ import 'package:netflix/application/movie/movie_event.dart';
 import 'package:netflix/application/movie/movie_state.dart';
 import 'package:netflix/data/model/movie_model.dart';
 import 'package:netflix/data/service/api_service.dart';
-
-
-
 class BlocBloc extends Bloc<MovieEvent, MovieState> {
   BlocBloc() : super(MovieInitial()) {
     on<MovieEvent>(onLoadMovieHandler1);
@@ -25,7 +22,7 @@ class BlocBloc extends Bloc<MovieEvent, MovieState> {
     emit(MovieLoaded(movie: data));
 
   }catch(e){
-    emit(MovieErro());
+    emit(MovieError());
   } 
   }
   onLoadMovieHandler2(event,emit)async{
@@ -36,7 +33,7 @@ class BlocBloc extends Bloc<MovieEvent, MovieState> {
     emit(MovieLoaded(movie: data));
 
   }catch(e){
-    emit(MovieErro());
+    emit(MovieError());
   } 
   }
   onLoadMovieHandler3(event,emit)async{
@@ -47,7 +44,7 @@ class BlocBloc extends Bloc<MovieEvent, MovieState> {
     emit(MovieLoaded(movie: data));
 
   }catch(e){
-    emit(MovieErro());
+    emit(MovieError());
   } 
   }
   onLoadMovieHandler4(event,emit)async{
@@ -58,7 +55,7 @@ class BlocBloc extends Bloc<MovieEvent, MovieState> {
     emit(MovieLoaded(movie: data));
 
   }catch(e){
-    emit(MovieErro());
+    emit(MovieError());
   } 
   }
   onLoadMovieHandler5(event,emit)async{
@@ -69,7 +66,7 @@ class BlocBloc extends Bloc<MovieEvent, MovieState> {
     emit(MovieLoaded(movie: data));
 
   }catch(e){
-    emit(MovieErro());
+    emit(MovieError());
   } 
   }
   onLoadMovieHandler6(event,emit)async{
@@ -80,7 +77,7 @@ class BlocBloc extends Bloc<MovieEvent, MovieState> {
     emit(MovieLoaded(movie: data));
 
   }catch(e){
-    emit(MovieErro());
+    emit(MovieError());
   } 
   }
   onLoadMovieHandler7(event,emit)async{
@@ -91,7 +88,7 @@ class BlocBloc extends Bloc<MovieEvent, MovieState> {
     emit(MovieLoaded(movie: data));
 
   }catch(e){
-    emit(MovieErro());
+    emit(MovieError());
   } 
   }
   onLoadMovieHandler8(event,emit)async{
@@ -102,7 +99,7 @@ class BlocBloc extends Bloc<MovieEvent, MovieState> {
     emit(MovieLoaded(movie: data));
 
   }catch(e){
-    emit(MovieErro());
+    emit(MovieError());
   } 
   }
   

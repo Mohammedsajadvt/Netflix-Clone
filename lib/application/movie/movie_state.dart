@@ -21,7 +21,7 @@ List<MovieModel> movie;
 MovieLoaded({required this.movie});
 }
 
-class MovieErro extends MovieState{
+class MovieError extends MovieState{
 
 }
 
