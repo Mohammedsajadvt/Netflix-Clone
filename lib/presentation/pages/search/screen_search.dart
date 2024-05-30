@@ -1,42 +1,37 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflix/infrastructure/model/movie_model.dart';
+import 'package:netflix/infrastructure/service/api_service.dart';
 import 'package:netflix/domain/core/constant_values.dart';
-import 'package:netflix/domain/core/utils.dart';
 import 'package:netflix/presentation/pages/widgets/main_title.dart';
-import '../../../infrastructure/model/movie_model.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import '../../../application/search/search_bloc.dart';
+import '../../../domain/core/utils.dart';
 import '../../../infrastructure/model/search_model.dart';
-import '../../../infrastructure/service/api_service.dart';
 
-
-class ScreenSearch extends StatefulWidget {
-  const ScreenSearch({
-    super.key,
-  });
+class ScreenSearch extends StatelessWidget {
+  const ScreenSearch({Key? key}) : super(key: key);
 
   @override
-  State<ScreenSearch> createState() => _ScreenSearchState();
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => SearchBloc(ApiServices())
+        ..add(LoadPopularMoviesEvent()),
+      child: const ScreenSearchView(),
+    );
+  }
 }
 
-class _ScreenSearchState extends State<ScreenSearch> {
-  TextEditingController searchController = SearchController();
-  ApiServices apiServices = ApiServices();
-  late Future<MovieModel> popularMovies;
-  SearchModel? searchModel;
-
-  void search(String query) {
-    apiServices.getSearchMovie(query).then((results) {
-      setState(() {
-        searchModel = results;
-      });
-    });
-  }
+class ScreenSearchView extends StatefulWidget {
+  const ScreenSearchView({Key? key}) : super(key: key);
 
   @override
-  void initState() {
-    super.initState();
-    popularMovies = apiServices.getPopularMovies();
-  }
+  State<ScreenSearchView> createState() => _ScreenSearchViewState();
+}
+
+class _ScreenSearchViewState extends State<ScreenSearchView> {
+  TextEditingController searchController = TextEditingController();
 
   @override
   void dispose() {
@@ -67,109 +62,108 @@ class _ScreenSearchState extends State<ScreenSearch> {
                   backgroundColor: grey.withOpacity(0.3),
                   onChanged: (value) {
                     if (value.isEmpty) {
+                      context.read<SearchBloc>().add(LoadPopularMoviesEvent());
                     } else {
-                      search(searchController.text);
+                      context.read<SearchBloc>().add(PerformSearch(value));
                     }
                   },
                 ),
               ),
-              searchController.text.isEmpty
-                  ? FutureBuilder<MovieModel>(
-                      future: popularMovies,
-                      builder: (context, snapshot) {
-                        if (snapshot.connectionState ==
-                            ConnectionState.waiting) {
-                          return Container();
-                        } else if (snapshot.hasError) {
-                          return Center(
-                              child: Text("Error: ${snapshot.error}"));
-                        } else if (!snapshot.hasData ||
-                            snapshot.data!.results.isEmpty) {
-                          return const Center(
-                            child: Text('No Data Available'),
-                          );
-                        } else {
-                          var data = snapshot.data!.results;
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const SizedBox(
-                                height: height20,
-                              ),
-                              const Padding(
-                                padding:
-                                    EdgeInsets.symmetric(horizontal: 10),
-                                child: MainTitle(title: "Top Searches"),
-                              ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              ListView.builder(
-                                scrollDirection: Axis.vertical,
-                                shrinkWrap: true,
-                                physics: const NeverScrollableScrollPhysics(),
-                                itemCount: data.length,
-                                itemBuilder: (context, index) {
-                                  return Card(
-                                    child: Container( 
-                                      height: 150,   
-                                     padding: const EdgeInsets.all(5.0),                                
-                                     child: Row(
-                                       children: [
-                                         Image.network('$imageUrl${data[index].posterPath}',),
-                                         const SizedBox(width: 20,),
-                                         Expanded(child: Text(data[index].title,maxLines: 2,style:const TextStyle(overflow: TextOverflow.ellipsis),)),
-                                         IconButton(onPressed: (){}, icon: Icon(Icons.play_circle))
-                                       ],
-                                     ),
-                                    ),
-                                  );
-                                },
-                              ),
-                            ],
-                          );
-                        }
-                      },
-                    )
-                  : searchModel == null
-                      ? const SizedBox.shrink()
-                      : GridView.builder(
-                          itemCount: searchModel?.results.length,
-                          shrinkWrap: true,
-                          physics: const NeverScrollableScrollPhysics(),
-                          gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 3,
-                                  mainAxisSpacing: 15,
-                                  crossAxisSpacing: 5,
-                                  childAspectRatio: 1.2 / 2),
-                          itemBuilder: (contex, index) {
-                            return Column(
-                              children: [
-                                searchModel!.results[index].backdropPath == null
-                                    ? Image.asset(
-                                        'images/n.png',
-                                        height: 170,
-                                      )
-                                    : CachedNetworkImage(
-                                        imageUrl:
-                                            "$imageUrl${searchModel!.results[index].backdropPath}",
-                                        height: 170,
-                                      ),
-                                Text(
-                                  searchModel!.results[index].originalTitle,
-                                  style: const TextStyle(
-                                      fontSize: 14,
-                                      overflow: TextOverflow.ellipsis),
-                                ),
-                               
-                              ],
-                            );
-                          }),
+              BlocBuilder<SearchBloc, SearchState>(
+                builder: (context, state) {
+                  if (state is SearchLoading) {
+                    return const Center(child: CircularProgressIndicator());
+                  } else if (state is SearchLoaded) {
+                    return _buildSearchResults(state.searchResults);
+                  } else if (state is PopularMoviesLoaded) {
+                    return _buildPopularMovies(state.popularMovies);
+                  } else if (state is SearchError) {
+                    return Center(child: Text("Error: ${state.message}"));
+                  } else {
+                    return const SizedBox.shrink();
+                  }
+                },
+              ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildPopularMovies(MovieModel movieModel) {
+    var data = movieModel.results;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const SizedBox(height: height20),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          child: MainTitle(title: "Top Searches"),
+        ),
+        const SizedBox(height: 10),
+        ListView.builder(
+          scrollDirection: Axis.vertical,
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: data.length,
+          itemBuilder: (context, index) {
+            return Card(
+              child: Container(
+                height: 150,
+                padding: const EdgeInsets.all(5.0),
+                child: Row(
+                  children: [
+                    Image.network('$imageUrl${data[index].posterPath}'),
+                    const SizedBox(width: 20),
+                    Expanded(
+                      child: Text(
+                        data[index].title,
+                        maxLines: 2,
+                        style: const TextStyle(overflow: TextOverflow.ellipsis),
+                      ),
+                    ),
+                    IconButton(onPressed: () {}, icon: const Icon(Icons.play_circle))
+                  ],
+                ),
+              ),
+            );
+          },
+        ),
+      ],
+    );
+  }
+
+  Widget _buildSearchResults(SearchModel searchModel) {
+    return GridView.builder(
+      itemCount: searchModel.results.length,
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 3,
+        mainAxisSpacing: 15,
+        crossAxisSpacing: 5,
+        childAspectRatio: 1.2 / 2,
+      ),
+      itemBuilder: (context, index) {
+        return Column(
+          children: [
+            searchModel.results[index].backdropPath == null
+                ? Image.asset(
+              'images/n.png',
+              height: 170,
+            )
+                : CachedNetworkImage(
+              imageUrl: "$imageUrl${searchModel.results[index].backdropPath}",
+              height: 170,
+            ),
+            Text(
+              searchModel.results[index].originalTitle,
+              style: const TextStyle(fontSize: 14, overflow: TextOverflow.ellipsis),
+            ),
+          ],
+        );
+      },
     );
   }
 }
