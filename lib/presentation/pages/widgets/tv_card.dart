@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:netflix/application/bloc/tv_shows_bloc.dart'; 
+import 'package:netflix/application/tv/tv_shows_bloc.dart'; 
 import 'package:netflix/domain/core/constant_values.dart';
 import 'package:netflix/domain/core/utils.dart';
 import 'package:netflix/presentation/pages/widgets/main_title.dart';
+import 'package:netflix/presentation/pages/widgets/movie_details_screen.dart';
 
 
 class TvCard extends StatelessWidget {
@@ -41,12 +42,18 @@ class TvCard extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.only(right: 8.0),
-                      child: Container(
-                        width: 150,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage('$imageUrl${data[index].posterPath}'),
-                            fit: BoxFit.cover,
+                      child: InkWell(
+                        onTap: (){
+                      //  Navigator.push(context, MaterialPageRoute(builder: (context)=> ));
+
+                        },
+                        child: Container(
+                          width: 150,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: NetworkImage('$imageUrl${data[index].posterPath}'),
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                       ),
@@ -57,7 +64,7 @@ class TvCard extends StatelessWidget {
             ],
           );
       }
-      return Text('No Data Available');
+      return const SizedBox();
     }
     ),);
   }

@@ -6,6 +6,7 @@ import 'package:netflix/infrastructure/service/api_service.dart';
 import 'package:netflix/domain/core/constant_values.dart';
 import 'package:netflix/presentation/pages/widgets/main_title.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:netflix/presentation/pages/widgets/movie_details_screen.dart';
 import '../../../application/search/search_bloc.dart';
 import '../../../domain/core/utils.dart';
 import '../../../infrastructure/model/search_model.dart';
@@ -72,7 +73,9 @@ class _ScreenSearchViewState extends State<ScreenSearchView> {
               BlocBuilder<SearchBloc, SearchState>(
                 builder: (context, state) {
                   if (state is SearchLoading) {
-                    return const Center(child: CircularProgressIndicator());
+                    return const Center(
+                      child: CircularProgressIndicator(color: Colors.red),
+                    );
                   } else if (state is SearchLoaded) {
                     return _buildSearchResults(state.searchResults);
                   } else if (state is PopularMoviesLoaded) {
@@ -108,23 +111,36 @@ class _ScreenSearchViewState extends State<ScreenSearchView> {
           physics: const NeverScrollableScrollPhysics(),
           itemCount: data.length,
           itemBuilder: (context, index) {
-            return Card(
-              child: Container(
-                height: 150,
-                padding: const EdgeInsets.all(5.0),
-                child: Row(
-                  children: [
-                    Image.network('$imageUrl${data[index].posterPath}'),
-                    const SizedBox(width: 20),
-                    Expanded(
-                      child: Text(
-                        data[index].title,
-                        maxLines: 2,
-                        style: const TextStyle(overflow: TextOverflow.ellipsis),
+            return InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => MovieDetailsScreen(movieId: data[index].id),
+                  ),
+                );
+              },
+              child: Card(
+                child: Container(
+                  height: 150,
+                  padding: const EdgeInsets.all(5.0),
+                  child: Row(
+                    children: [
+                      Image.network('$imageUrl${data[index].posterPath}'),
+                      const SizedBox(width: 20),
+                      Expanded(
+                        child: Text(
+                          data[index].title,
+                          maxLines: 2,
+                          style: const TextStyle(overflow: TextOverflow.ellipsis),
+                        ),
                       ),
-                    ),
-                    IconButton(onPressed: () {}, icon: const Icon(Icons.play_circle))
-                  ],
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.play_circle),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             );
@@ -146,22 +162,32 @@ class _ScreenSearchViewState extends State<ScreenSearchView> {
         childAspectRatio: 1.2 / 2,
       ),
       itemBuilder: (context, index) {
-        return Column(
-          children: [
-            searchModel.results[index].backdropPath == null
-                ? Image.asset(
-              'images/n.png',
-              height: 170,
-            )
-                : CachedNetworkImage(
-              imageUrl: "$imageUrl${searchModel.results[index].backdropPath}",
-              height: 170,
-            ),
-            Text(
-              searchModel.results[index].originalTitle,
-              style: const TextStyle(fontSize: 14, overflow: TextOverflow.ellipsis),
-            ),
-          ],
+        return InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => MovieDetailsScreen(movieId: searchModel.results[index].id),
+              ),
+            );
+          },
+          child: Column(
+            children: [
+              searchModel.results[index].backdropPath == null
+                  ? Image.asset(
+                      'images/n.png',
+                      height: 170,
+                    )
+                  : CachedNetworkImage(
+                      imageUrl: "$imageUrl${searchModel.results[index].backdropPath}",
+                      height: 170,
+                    ),
+              Text(
+                searchModel.results[index].originalTitle,
+                style: const TextStyle(fontSize: 14, overflow: TextOverflow.ellipsis),
+              ),
+            ],
+          ),
         );
       },
     );

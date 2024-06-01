@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/application/bloc/tv_shows_bloc.dart';
+import 'package:netflix/application/tv/tv_shows_bloc.dart';
 import 'package:netflix/application/movie/movie_event.dart';
 import 'package:netflix/presentation/pages/widgets/movie_card.dart';
 import 'package:netflix/presentation/pages/widgets/tv_card.dart';

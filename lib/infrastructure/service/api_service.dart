@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
 import 'package:netflix/domain/core/utils.dart';
+import 'package:netflix/infrastructure/model/movie_details_model.dart';
+import 'package:netflix/infrastructure/model/movie_recommendation.dart';
 
 import '../model/movie_model.dart';
 import '../model/search_model.dart';
@@ -103,6 +105,26 @@ class ApiServices {
       return TvSeries.fromJson(jsonDecode(response.body));
     }
     throw Exception("Failed to load trending movies");
+  }
+   Future<MovieDetailModel> getMovieDetail(int movieId)async{
+    endpoint = "movie/$movieId";
+    final url = "$baseUrl$endpoint$key";
+    final response = await http.get(Uri.parse(url));
+    if(response.statusCode==200){
+      log('MovieDetails:$url');
+      return MovieDetailModel.fromJson(jsonDecode(response.body));
+    }
+    throw Exception("Failed to load movie details");
+  }
+  Future<MovieRecommendationsModel> getMovieRecommendation(int movieId)async{
+    endpoint = "movie/$movieId/recommendations";
+    final url = "$baseUrl$endpoint$key";
+    final response = await http.get(Uri.parse(url));
+    if(response.statusCode==200){
+      log('Recommendation:$url');
+      return MovieRecommendationsModel.fromJson(jsonDecode(response.body));
+    }
+    throw Exception("Failed to load more like this");
   }
 }
 

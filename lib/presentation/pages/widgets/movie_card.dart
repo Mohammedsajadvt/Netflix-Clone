@@ -4,6 +4,7 @@ import 'package:netflix/application/movie/movie_bloc.dart';
 import 'package:netflix/application/movie/movie_state.dart';
 import 'package:netflix/domain/core/constant_values.dart';
 import 'package:netflix/presentation/pages/widgets/main_title.dart';
+import 'package:netflix/presentation/pages/widgets/movie_details_screen.dart';
 
 import '../../../application/movie/movie_event.dart';
 import '../../../domain/core/utils.dart';
@@ -47,7 +48,9 @@ class MovieCard extends StatelessWidget {
                       return Padding(
                         padding: const EdgeInsets.only(right: 8.0),
                         child: InkWell(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context)=> MovieDetailsScreen(movieId: data[index].id)));
+                          },
                           child: Container(
                             width: 150,
                             decoration: BoxDecoration(
@@ -66,7 +69,7 @@ class MovieCard extends StatelessWidget {
               ],
             );
           }
-          return const Text('No Data Available');
+          return const SizedBox();
         },
       ),
     );
