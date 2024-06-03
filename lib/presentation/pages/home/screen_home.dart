@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/application/tv/tv_shows_bloc.dart';
 import 'package:netflix/application/movie/movie_event.dart';
 import 'package:netflix/presentation/pages/widgets/movie_card.dart';
-import 'package:netflix/presentation/pages/widgets/tv_card.dart';
 import '../../../infrastructure/service/api_service.dart';
 import '../widgets/home_screen_card.dart';
 
@@ -76,10 +74,7 @@ class _ScreenHomeState extends State<ScreenHome> {
                   MovieCard(
                       event: LoadTopRatedMovies(),
                       headline: "Top Rated"),
-                  TvCard(event: LoadAiringTodayTvShows(), headline: "Airing Today"),
-                  TvCard(event: LoadOnTheAirTvShows(), headline: "On The Air"),
-                  TvCard(event: LoadPopularTvShows(), headline: "Popurlar"),
-                  TvCard(event: LoadTopRatedTvShows(), headline: "Top Rated")
+                  
                 ],
               ),
             ),

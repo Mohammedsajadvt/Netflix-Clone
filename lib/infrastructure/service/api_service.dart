@@ -7,7 +7,6 @@ import 'package:netflix/infrastructure/model/movie_recommendation.dart';
 
 import '../model/movie_model.dart';
 import '../model/search_model.dart';
-import '../model/tvseries_model.dart';
 
 var key = '?api_key=$apiKey';
 late String endpoint;
@@ -66,46 +65,7 @@ class ApiServices {
     }
     throw Exception("Failed to load search movies");
   }
-  Future<TvSeries> getAiringToday()async{
-    endpoint = "tv/airing_today";
-    final url = "$baseUrl$endpoint$key";
-    final response = await http.get(Uri.parse(url));
-    if(response.statusCode==200){
-      log('TopRated:$url');
-      return TvSeries.fromJson(jsonDecode(response.body));
-    }
-    throw Exception("Failed to load trending movies");
-  }
-  Future<TvSeries> getOnTheAir()async{
-    endpoint = "tv/on_the_air";
-    final url = "$baseUrl$endpoint$key";
-    final response = await http.get(Uri.parse(url));
-    if(response.statusCode==200){
-      log('TopRated:$url');
-      return TvSeries.fromJson(jsonDecode(response.body));
-    }
-    throw Exception("Failed to load trending movies");
-  }
-  Future<TvSeries> getPopular()async{
-    endpoint = "tv/popular";
-    final url = "$baseUrl$endpoint$key";
-    final response = await http.get(Uri.parse(url));
-    if(response.statusCode==200){
-      log('TopRated:$url');
-      return TvSeries.fromJson(jsonDecode(response.body));
-    }
-    throw Exception("Failed to load trending movies");
-  }
-   Future<TvSeries> getTopRated()async{
-    endpoint = "tv/top_rated";
-    final url = "$baseUrl$endpoint$key";
-    final response = await http.get(Uri.parse(url));
-    if(response.statusCode==200){
-      log('TopRated:$url');
-      return TvSeries.fromJson(jsonDecode(response.body));
-    }
-    throw Exception("Failed to load trending movies");
-  }
+  
    Future<MovieDetailModel> getMovieDetail(int movieId)async{
     endpoint = "movie/$movieId";
     final url = "$baseUrl$endpoint$key";
