@@ -24,7 +24,7 @@ class MovieRecommendationsModel {
 
 class Movie {
   int id;
-  String posterPath;
+  String? posterPath;
 
   Movie({
     required this.id,

@@ -12,7 +12,7 @@ import '../../../domain/core/utils.dart';
 import '../../../infrastructure/model/search_model.dart';
 
 class ScreenSearch extends StatelessWidget {
-  const ScreenSearch({Key? key}) : super(key: key);
+  const ScreenSearch({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class ScreenSearch extends StatelessWidget {
 }
 
 class ScreenSearchView extends StatefulWidget {
-  const ScreenSearchView({Key? key}) : super(key: key);
+  const ScreenSearchView({super.key});
 
   @override
   State<ScreenSearchView> createState() => _ScreenSearchViewState();
@@ -74,7 +74,7 @@ class _ScreenSearchViewState extends State<ScreenSearchView> {
                 builder: (context, state) {
                   if (state is SearchLoading) {
                     return const Center(
-                      child: CircularProgressIndicator(color: Colors.red),
+                      child: SizedBox(),
                     );
                   } else if (state is SearchLoaded) {
                     return _buildSearchResults(state.searchResults);

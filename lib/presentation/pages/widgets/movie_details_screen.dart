@@ -49,9 +49,9 @@ class MovieDetailsScreen extends StatelessWidget {
                             height: MediaQuery.of(context).size.height * 0.4,
                             decoration: BoxDecoration(
                               image: DecorationImage(
-                                image: movie.backdropPath != null 
+                                image: movie.backdropPath != null
                                   ? NetworkImage("$imageUrl${movie.backdropPath}")
-                                  : const AssetImage('images/n.png'), // Provide default asset image
+                                  : const AssetImage('images/n.png'),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -111,12 +111,18 @@ class MovieDetailsScreen extends StatelessWidget {
                 }
               },
             ),
-            const SizedBox(height: 30),
+            const Padding(
+              padding: EdgeInsets.only(top: 10,), 
+              child: Text(
+                "More Like This",
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+            ),
             BlocBuilder<MovieRecommendationBloc, MovieRecommendationState>(
               builder: (context, state) {
                 if (state is MovieRecommendationLoading) {
                   return const Center(
-                    child: CircularProgressIndicator(color: Colors.red),
+                    child: SizedBox(),
                   );
                 } else if (state is MovieRecommendationError) {
                   return Center(
@@ -127,39 +133,26 @@ class MovieDetailsScreen extends StatelessWidget {
                   if (movieRecommendations.results.isEmpty) {
                     return const SizedBox();
                   }
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16.0),
-                        child: Text(
-                          "More Like This",
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      GridView.builder(
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3,
-                          mainAxisSpacing: 15,
-                          crossAxisSpacing: 5,
-                          childAspectRatio: 1.5 / 2,
-                        ),
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemCount: movieRecommendations.results.length,
-                        itemBuilder: (context, index) {
-                          final movie = movieRecommendations.results[index];
-                          return CachedNetworkImage(
-                            imageUrl: movie.posterPath != null
-                              ? "$imageUrl${movie.posterPath}"
-                              : 'images/n.png', // Provide default asset image
-                            fit: BoxFit.cover,
-                            errorWidget: (context, url, error) => Image.asset('images/n.png'), // Fallback if image loading fails
-                          );
-                        },
-                      ),
-                    ],
+                  return GridView.builder(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 5,
+                      childAspectRatio: 1.5 / 2,
+                    ),
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: movieRecommendations.results.length,
+                    itemBuilder: (context, index) {
+                      final movie = movieRecommendations.results[index];
+                      return CachedNetworkImage(
+                        imageUrl: movie.posterPath != null
+                          ? "$imageUrl${movie.posterPath}"
+                          : 'images/n.png',
+                        fit: BoxFit.cover,
+                        errorWidget: (context, url, error) => Image.asset('images/n.png'),
+                      );
+                    },
                   );
                 } else {
                   return const SizedBox();
