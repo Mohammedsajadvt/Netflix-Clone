@@ -1,4 +1,3 @@
-// movie_recommendation_state.dart
 import 'package:equatable/equatable.dart';
 import 'package:netflix/infrastructure/model/movie_recommendation.dart';
 

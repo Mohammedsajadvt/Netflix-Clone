@@ -17,7 +17,6 @@ class MovieDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Dispatch events for movie details and recommendations
     context.read<MovieDetailBloc>().add(FetchMovieDetail(movieId));
     context.read<MovieRecommendationBloc>().add(FetchMovieRecommendation(movieId));
 

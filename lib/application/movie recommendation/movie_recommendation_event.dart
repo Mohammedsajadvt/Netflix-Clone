@@ -1,4 +1,3 @@
-// movie_recommendation_event.dart
 import 'package:equatable/equatable.dart';
 
 abstract class MovieRecommendationEvent extends Equatable {
