@@ -27,12 +27,8 @@
 </div>
 
 <div>
-<div>
 <img src="screenshots/Screenshot_1717425253.png" width=256 style:inline-block/>
-</div>
-<div>
 <img src="screenshots/Screenshot_1717478117.png" width=256 style:inline-block/>
-</div>
 </div>
 
 
