@@ -2,9 +2,13 @@
 
 <p>A Netflix Clone App Build With Flutter Using The TMDB API!</p>
 
-<h2>Highlights: <P>Modern UI/UX , TMDB API Integration , Responsive Design , Search Functionality</P></h2>
+<h2>Highlights:</h2>
 
-<h2>Technical Insights: <p>Flutter & Dart , Bloc State Management , HTTP Package , Error Handling</p></h2>
+<P>Modern UI/UX , TMDB API Integration , Responsive Design , Search Functionality</P>
+ 
+<h2>Technical Insights:</h2>
+
+<p>Flutter & Dart , Bloc State Management , HTTP Package , Error Handling</p>
 
 <h2>ScreenShots</h2>
 
