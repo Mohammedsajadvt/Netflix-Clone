@@ -1,16 +1,38 @@
-# netflix
+<h1>Netflix Clone</h1>
 
-A new Flutter project.
+<p>A Netflix Clone App Build With Flutter Using The TMDB API!</p>
 
-## Getting Started
+<h2>Highlights: Modern UI/UX , TMDB API Integration , Responsive Design , Search Functionality</h2>
 
-This project is a starting point for a Flutter application.
+<h2>Technical Insights: Flutter & Dart , Bloc State Management , HTTP Package , Error Handling</h2>
 
-A few resources to get you started if this is your first Flutter project:
+<h2>ScreenShots</h2>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<div>
+<img src="screenshots/Screenshot_1717423029.png" width=256 style:inline-block/>
+<img src="screenshots/Screenshot_1717423032.png" width=256 style:inline-block/>
+<img src="screenshots/Screenshot_1717423043.png" width=256 style:inline-block/>
+</div>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<div>
+<img src="screenshots/Screenshot_1717423051.png" width=256 style:inline-block/>
+<img src="screenshots/Screenshot_1717423058.png" width=256 style:inline-block/>
+<img src="screenshots/Screenshot_1717423084.png" width=256 style:inline-block/>
+</div>
+
+<div>
+<img src="screenshots/Screenshot_1717478143.png" width=256 style:inline-block/>
+<img src="screenshots/Screenshot_1717425245.png" width=256 style:inline-block/>
+<img src="screenshots/Screenshot_1717425250.png" width=256 style:inline-block/>
+</div>
+
+<div>
+<div>
+<img src="screenshots/Screenshot_1717425253.png" width=256 style:inline-block/>
+</div>
+<div>
+<img src="screenshots/Screenshot_1717478117.png" width=256 style:inline-block/>
+</div>
+</div>
+
+

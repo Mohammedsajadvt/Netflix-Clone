@@ -9,6 +9,7 @@ import 'package:netflix/application/movie%20recommendation/movie_recommendation_
 import 'package:netflix/application/movie%20recommendation/movie_recommendation_state.dart';
 import 'package:netflix/domain/core/constant_values.dart';
 import 'package:netflix/domain/core/utils.dart';
+import 'package:netflix/presentation/pages/widgets/main_title.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
   final int movieId;
@@ -29,9 +30,7 @@ class MovieDetailsScreen extends StatelessWidget {
               builder: (context, state) {
                 if (state is MovieDetailLoading) {
                   return const Center(
-                    child: CircularProgressIndicator(
-                      color: Colors.red,
-                    ),
+                    child: SizedBox()
                   );
                 } else if (state is MovieDetailError) {
                   return Center(
@@ -111,53 +110,52 @@ class MovieDetailsScreen extends StatelessWidget {
                 }
               },
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 10,), 
-              child: Text(
-                "More Like This",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-            ),
-            BlocBuilder<MovieRecommendationBloc, MovieRecommendationState>(
-              builder: (context, state) {
-                if (state is MovieRecommendationLoading) {
-                  return const Center(
-                    child: SizedBox(),
-                  );
-                } else if (state is MovieRecommendationError) {
-                  return Center(
-                    child: Text('Error: ${state.message}'),
-                  );
-                } else if (state is MovieRecommendationLoaded) {
-                  final movieRecommendations = state.movieRecommendations;
-                  if (movieRecommendations.results.isEmpty) {
-                    return const SizedBox();
-                  }
-                  return GridView.builder(
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      mainAxisSpacing: 10,
-                      crossAxisSpacing: 5,
-                      childAspectRatio: 1.5 / 2,
-                    ),
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: movieRecommendations.results.length,
-                    itemBuilder: (context, index) {
-                      final movie = movieRecommendations.results[index];
-                      return CachedNetworkImage(
-                        imageUrl: movie.posterPath != null
-                          ? "$imageUrl${movie.posterPath}"
-                          : 'images/n.png',
-                        fit: BoxFit.cover,
-                        errorWidget: (context, url, error) => Image.asset('images/n.png'),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const MainTitle(title: 'More Like This'),
+                BlocBuilder<MovieRecommendationBloc, MovieRecommendationState>(
+                  builder: (context, state) {
+                    if (state is MovieRecommendationLoading) {
+                      return  Center(
+                        child: Container(),
                       );
-                    },
-                  );
-                } else {
-                  return const SizedBox();
-                }
-              },
+                    } else if (state is MovieRecommendationError) {
+                      return Center(
+                        child: Text('Error: ${state.message}'),
+                      );
+                    } else if (state is MovieRecommendationLoaded) {
+                      final movieRecommendations = state.movieRecommendations;
+                      if (movieRecommendations.results.isEmpty) {
+                        return Container();
+                      }
+                      return GridView.builder(
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 3,
+                          mainAxisSpacing: 10,
+                          crossAxisSpacing: 5,
+                          childAspectRatio: 1.5 / 2,
+                        ),
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: movieRecommendations.results.length,
+                        itemBuilder: (context, index) {
+                          final movie = movieRecommendations.results[index];
+                          return CachedNetworkImage(
+                            imageUrl: movie.posterPath != null
+                              ? "$imageUrl${movie.posterPath}"
+                              : 'images/n.png',
+                            fit: BoxFit.cover,
+                            errorWidget: (context, url, error) => Image.asset('images/n.png'),
+                          );
+                        },
+                      );
+                    } else {
+                      return const SizedBox();
+                    }
+                  },
+                ),
+              ],
             ),
           ],
         ),

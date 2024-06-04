@@ -56,9 +56,9 @@ dev_dependencies:
   flutter_lints: ^3.0.0
 
 flutter_launcher_icons:
-  android: "launcher_icon"
+  android: true
   ios: true
-  image_path: "images/n.png"
+  image_path: "icon/n.png"
   min_sdk_android: 21 
 
 # For information on the generic Dart part of this file, see the
