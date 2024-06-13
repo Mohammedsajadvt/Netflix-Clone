@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:netflix/domain/core/constant_values.dart';
-
+import 'index.dart';
 
 ValueNotifier<int> indexChangeNotifier = ValueNotifier(0);
 

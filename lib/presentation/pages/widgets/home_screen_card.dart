@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:netflix/domain/core/constant_values.dart';
+import 'index.dart';
 
 class FirstPartHomeScreen extends StatelessWidget {
   const FirstPartHomeScreen({

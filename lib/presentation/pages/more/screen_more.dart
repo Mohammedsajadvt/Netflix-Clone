@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:icons_plus/icons_plus.dart';
-import 'package:netflix/domain/core/constant_values.dart';
+import 'package:netflix/presentation/pages/widgets/index.dart';
+
 class ScreenMore extends StatelessWidget {
   const ScreenMore({super.key});
 

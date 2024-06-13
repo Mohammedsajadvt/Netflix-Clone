@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:netflix/domain/core/constant_values.dart';
+import 'package:netflix/presentation/pages/widgets/index.dart';
 
 class ScreenDownloads extends StatelessWidget {
   const ScreenDownloads({super.key});

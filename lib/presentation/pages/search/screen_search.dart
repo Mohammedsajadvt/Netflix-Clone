@@ -1,15 +1,8 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:netflix/infrastructure/model/movie_model.dart';
-import 'package:netflix/infrastructure/service/api_service.dart';
-import 'package:netflix/domain/core/constant_values.dart';
-import 'package:netflix/presentation/pages/widgets/main_title.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:netflix/presentation/pages/widgets/movie_details_screen.dart';
-import '../../../application/search/search_bloc.dart';
-import '../../../domain/core/utils.dart';
-import '../../../infrastructure/model/search_model.dart';
+import 'package:netflix/presentation/pages/widgets/index.dart';
+
+
 
 class ScreenSearch extends StatelessWidget {
   const ScreenSearch({super.key});

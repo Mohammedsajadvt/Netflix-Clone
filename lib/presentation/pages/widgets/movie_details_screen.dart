@@ -1,15 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:netflix/application/movie%20detail/movie_detail_bloc.dart';
-import 'package:netflix/application/movie%20detail/movie_detail_event.dart';
-import 'package:netflix/application/movie%20detail/movie_detail_state.dart';
-import 'package:netflix/application/movie%20recommendation/movie_recommendation_bloc.dart';
-import 'package:netflix/application/movie%20recommendation/movie_recommendation_event.dart';
-import 'package:netflix/application/movie%20recommendation/movie_recommendation_state.dart';
-import 'package:netflix/domain/core/constant_values.dart';
-import 'package:netflix/domain/core/utils.dart';
-import 'package:netflix/presentation/pages/widgets/main_title.dart';
+import 'index.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
   final int movieId;

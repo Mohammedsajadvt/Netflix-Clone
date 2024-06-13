@@ -1,14 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:netflix/application/movie/movie_bloc.dart';
-import 'package:netflix/application/movie/movie_state.dart';
-import 'package:netflix/domain/core/constant_values.dart';
-import 'package:netflix/presentation/pages/widgets/main_title.dart';
-import 'package:netflix/presentation/pages/widgets/movie_details_screen.dart';
-
-import '../../../application/movie/movie_event.dart';
-import '../../../domain/core/utils.dart';
-import '../../../infrastructure/service/api_service.dart';
+import'index.dart';
 
 class MovieCard extends StatelessWidget {
   final String headline;

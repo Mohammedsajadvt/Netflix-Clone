@@ -1,18 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:netflix/application/movie/movie_event.dart';
-import 'package:netflix/presentation/pages/widgets/movie_card.dart';
-import '../../../infrastructure/service/api_service.dart';
-import '../widgets/home_screen_card.dart';
-
-
-class ScreenHome extends StatefulWidget {
-  const ScreenHome({super.key});
+import 'package:netflix/presentation/pages/widgets/index.dart';
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<ScreenHome> createState() => _ScreenHomeState();
+  State<HomeScreen> createState() => _ScreenHomeState();
 }
 
-class _ScreenHomeState extends State<ScreenHome> {
+class _ScreenHomeState extends State<HomeScreen> {
   final ApiServices apiServices = ApiServices();
 
   @override

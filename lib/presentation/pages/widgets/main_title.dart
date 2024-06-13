@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'index.dart';
 
 class MainTitle extends StatelessWidget {
   const MainTitle({super.key,required this.title});

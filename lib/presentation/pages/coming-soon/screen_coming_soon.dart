@@ -1,13 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:netflix/presentation/pages/widgets/index.dart';
 import 'package:intl/intl.dart';
-import 'package:netflix/application/coming%20soon/coming_soon_bloc.dart';
-import 'package:netflix/application/coming%20soon/coming_soon_event.dart';
-import 'package:netflix/application/coming%20soon/coming_soon_state.dart';
-import 'package:netflix/domain/core/constant_values.dart';
-import 'package:netflix/domain/core/utils.dart';
-import 'package:netflix/infrastructure/model/movie_details_model.dart';
-import '../../../infrastructure/service/api_service.dart';
+
 
 class ScreenComingSoon extends StatelessWidget {
   const ScreenComingSoon({super.key});
