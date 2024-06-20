@@ -9,7 +9,7 @@ class ScreenDownloads extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: ListView(
-            shrinkWrap: true, // Adjust ListView height to its contents
+            shrinkWrap: true, 
             children: [
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
