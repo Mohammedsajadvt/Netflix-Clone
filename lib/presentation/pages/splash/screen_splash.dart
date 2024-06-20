@@ -1,26 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-class ScreenSplash extends StatefulWidget {
+
+class ScreenSplash extends StatelessWidget {
   const ScreenSplash({super.key});
 
   @override
-  State<ScreenSplash> createState() => _ScreenSplashState();
-}
-
-class _ScreenSplashState extends State<ScreenSplash> {
-  @override
-  void initState() {
-   
-    super.initState();
-     Future.delayed(const Duration(seconds: 4), () {
+  Widget build(BuildContext context) {
+    Future.delayed(const Duration(seconds: 4), () {
       Navigator.of(context).pushReplacementNamed('/user');
     });
-  }
-  @override
-  Widget build(BuildContext context) {
-    
-    return Center(
-      child: Lottie.asset('images/netflix.json'),
+
+    return Scaffold(
+      body: Center(
+        child: Lottie.asset('images/netflix.json'),
+      ),
     );
   }
 }
