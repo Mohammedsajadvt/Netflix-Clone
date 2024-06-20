@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
          BlocProvider(
           create: (context) => MovieRecommendationBloc(ApiServices()), 
         ),
+       
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
           "/splash": (context) => const ScreenSplash(),
           "/user": (context) => const ScreenUser(),
           "/home": (context) => const HomeScreen(),
-          "/main": (context) => const Main(),
+          "/main": (context) =>   Main(),
           "/search": (context) => const ScreenSearch(),
         },
       ),

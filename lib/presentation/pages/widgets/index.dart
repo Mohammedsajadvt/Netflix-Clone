@@ -29,5 +29,7 @@ export  '../widgets/home_screen_card.dart';
 export  'package:netflix/presentation/pages/widgets/movie_card.dart';
 export  'package:netflix/application/coming%20soon/coming_soon_state.dart';
 export  'package:netflix/infrastructure/model/movie_details_model.dart';
-
-
+export 'package:netflix/presentation/pages/coming-soon/screen_coming_soon.dart';
+export 'package:netflix/presentation/pages/downloads/screen_downloads.dart';
+export  'package:netflix/presentation/pages/more/screen_more.dart';
+export 'package:netflix/presentation/pages/widgets/bottom_navigation.dart';
