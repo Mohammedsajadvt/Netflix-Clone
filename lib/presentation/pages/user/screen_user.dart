@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/domain/core/constant_values.dart';
 
-
 class ScreenUser extends StatelessWidget {
   const ScreenUser({super.key});
+
+  final List<Map<String, String>> profiles = const [
+    {'image': 'images/Emenalo.png', 'name': 'Emenalo'},
+    {'image': 'images/Onyeka.png', 'name': 'Onyeka'},
+    {'image': 'images/Thelma.png', 'name': 'Thelma'},
+    {'image': 'images/Kids.png', 'name': 'Kids'},
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -13,90 +19,54 @@ class ScreenUser extends StatelessWidget {
           children: [
             Row(
               children: [
-                SizedBox(width: MediaQuery.of(context).size.width/9,),
+                SizedBox(width: MediaQuery.of(context).size.width / 9),
                 Expanded(child: Image.asset('images/netflix.png')),
-                IconButton(onPressed: (){}, icon: const Icon(Icons.edit)),
+                IconButton(onPressed: () {}, icon: const Icon(Icons.edit)),
               ],
             ),
-           Expanded(
-             child: Padding(
-               padding: const EdgeInsets.symmetric(horizontal: 60),
-               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(children: [
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: (){},
-                        child: Container(child: Column(
-                          children: [
-                            Image.asset('images/Emenalo.png'),
-                            const Text('Emenalo')
-                          ],
-                        )),
-                      ),
+            Expanded(
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 60),
+                  child: GridView.builder(
+                    shrinkWrap: true,
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 20,
+                      crossAxisSpacing: 20,
+                      childAspectRatio: 1,
                     ),
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: (){},
-                        child: Container(child: Column(
-                          children: [
-                            Image.asset('images/Onyeka.png'),
-                            const Text('Onyeka')
-                          ],
-                        )),
-                      ),
-                    ),
-                  ],),
-                  const SizedBox(height: height50,),
-                  Row(children: [
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: (){},
-                        child: Container(child: Column(
-                          children: [
-                            Image.asset('images/Thelma.png'),
-                            const Text('Thelma')
-                          ],
-                        )),
-                      ),
-                    ),
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: (){},
-                        child: Container(child: Column(
-                          children: [
-                            Image.asset('images/Kids.png'),
-                            const Text('Kids')
-                          ],
-                        )),
-                      ),
-                    ),
-                  ],),
-                  const SizedBox(height: height50,),
-                  Row(children: [
-                    Expanded(
-                      child: GestureDetector(
-                        onTap: (){
-                          Navigator.pushNamed(context, '/main');
-                        },
-                        child: Column(
-                          children: [
-                            addIcon,
-                            const SizedBox(height: height20,),
-                            const Text('Add Profile')
-                          ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: Container(),
-                    ),
-                  ],)
-                ],
-               ),
-             ),
-           ),
+                    itemCount: profiles.length + 1, 
+                    itemBuilder: (context, index) {
+                      if (index < profiles.length) {
+                        return GestureDetector(
+                          onTap: () {},
+                          child: Column(
+                            children: [
+                              Image.asset(profiles[index]['image']!),
+                              Text(profiles[index]['name']!),
+                            ],
+                          ),
+                        );
+                      } else {
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/main');
+                          },
+                          child: Column(
+                            children: [
+                              addIcon,
+                              const SizedBox(height: height20),
+                              const Text('Add Profile'),
+                            ],
+                          ),
+                        );
+                      }
+                    },
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
