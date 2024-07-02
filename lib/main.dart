@@ -1,3 +1,4 @@
+import 'package:netflix/application/bottom%20navigation/bottom_navigation_bloc.dart';
 import 'package:netflix/presentation/pages/widgets/index.dart';
 
 void main() {
@@ -15,15 +16,16 @@ class MyApp extends StatelessWidget {
           create: (context) => MovieBloc(ApiServices()),
         ),
         BlocProvider(
-          create: (context) => ComingSoonBloc(ApiServices())..add(FetchComingSoonMovies()),
+          create: (context) =>
+              ComingSoonBloc(ApiServices())..add(FetchComingSoonMovies()),
         ),
         BlocProvider(
           create: (context) => MovieDetailBloc(ApiServices()),
         ),
-         BlocProvider(
-          create: (context) => MovieRecommendationBloc(ApiServices()), 
+        BlocProvider(
+          create: (context) => MovieRecommendationBloc(ApiServices()),
         ),
-       
+        BlocProvider(create: (context) => BottomNavigationBloc())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -31,11 +33,11 @@ class MyApp extends StatelessWidget {
         theme: ThemeData.dark(),
         initialRoute: "/splash",
         routes: {
-          "/splash": (context) => const ScreenSplash(),
-          "/user": (context) => const ScreenUser(),
+          "/splash": (context) => const SplashScreen(),
+          "/user": (context) => const UserScreen(),
           "/home": (context) => const HomeScreen(),
-          "/main": (context) =>   Main(),
-          "/search": (context) => const ScreenSearch(),
+          "/search": (context) => const SearchScreen(),
+          "/main":(context) => const BottomNavigation()
         },
       ),
     );

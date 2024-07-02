@@ -15,7 +15,6 @@ export 'package:netflix/application/coming%20soon/coming_soon_event.dart';
 export 'package:netflix/application/movie/movie_bloc.dart';
 export 'package:netflix/infrastructure/service/api_service.dart';
 export 'package:netflix/presentation/pages/home/home_screen.dart';
-export 'package:netflix/presentation/pages/main_page/screen_main.dart';
 export 'package:netflix/presentation/pages/search/screen_search.dart';
 export 'package:netflix/presentation/pages/splash/screen_splash.dart';
 export 'package:netflix/presentation/pages/user/screen_user.dart';

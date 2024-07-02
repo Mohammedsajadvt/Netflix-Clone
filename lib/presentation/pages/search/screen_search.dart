@@ -4,27 +4,27 @@ import 'package:netflix/presentation/pages/widgets/index.dart';
 
 
 
-class ScreenSearch extends StatelessWidget {
-  const ScreenSearch({super.key});
+class SearchScreen extends StatelessWidget {
+  const SearchScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => SearchBloc(ApiServices())
         ..add(LoadPopularMoviesEvent()),
-      child: const ScreenSearchView(),
+      child: const SearchScreenView(),
     );
   }
 }
 
-class ScreenSearchView extends StatefulWidget {
-  const ScreenSearchView({super.key});
+class SearchScreenView extends StatefulWidget {
+  const SearchScreenView({super.key});
 
   @override
-  State<ScreenSearchView> createState() => _ScreenSearchViewState();
+  State<SearchScreenView> createState() => _SearchScreenViewState();
 }
 
-class _ScreenSearchViewState extends State<ScreenSearchView> {
+class _SearchScreenViewState extends State<SearchScreenView> {
   TextEditingController searchController = TextEditingController();
 
   @override

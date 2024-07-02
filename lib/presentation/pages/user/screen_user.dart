@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:netflix/domain/core/constant_values.dart';
+import 'package:netflix/presentation/pages/widgets/index.dart';
 
-class ScreenUser extends StatelessWidget {
-  const ScreenUser({super.key});
+class UserScreen extends StatelessWidget {
+  const UserScreen({super.key});
 
   final List<Map<String, String>> profiles = const [
     {'image': 'images/Emenalo.png', 'name': 'Emenalo'},

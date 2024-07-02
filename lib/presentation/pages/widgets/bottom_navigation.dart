@@ -1,6 +1,37 @@
+import 'package:netflix/application/bottom%20navigation/bottom_navigation_bloc.dart';
+
 import 'index.dart';
 
-ValueNotifier<int> indexChangeNotifier = ValueNotifier(0);
+List<BottomNavigationBarItem> bottomNavIteams = <BottomNavigationBarItem>[
+  const BottomNavigationBarItem(
+    icon: Icon(Icons.home),
+    label: "Home",
+  ),
+  const BottomNavigationBarItem(
+    icon: Icon(Icons.search),
+    label: "Search",
+  ),
+  const BottomNavigationBarItem(
+    icon: Icon(Icons.photo_library_outlined),
+    label: "Coming Soon",
+  ),
+  const BottomNavigationBarItem(
+    icon: Icon(Icons.download_rounded),
+    label: "Downloads",
+  ),
+  const BottomNavigationBarItem(
+    icon: Icon(Icons.menu),
+    label: "More",
+  ),
+];
+
+const List<Widget> bottomNavScreens = <Widget> [
+    HomeScreen(),
+    SearchScreen(),
+    ScreenComingSoon(),
+    ScreenDownloads(),
+    ScreenMore()
+  ];
 
 class BottomNavigation extends StatelessWidget {
   const BottomNavigation({
@@ -9,44 +40,22 @@ class BottomNavigation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder(
-      valueListenable: indexChangeNotifier,
-      builder: (context, int newIndex, _) {
-        return BottomNavigationBar(
-          onTap: (index) {
-            indexChangeNotifier.value = index;
-          },
-          elevation: 0,
+    return BlocConsumer<BottomNavigationBloc, BottomNavigationState>(builder: (context,state){
+      return Scaffold(
+      body: Center(child: bottomNavScreens.elementAt(state.tabIndex),),
+      bottomNavigationBar: BottomNavigationBar(items: bottomNavIteams,elevation: 0,
           type: BottomNavigationBarType.fixed,
           unselectedItemColor: grey,
           selectedItemColor: white,
-          currentIndex: newIndex,
+          currentIndex: state.tabIndex,
           selectedLabelStyle: const TextStyle(fontSize: 12),
           unselectedLabelStyle: const TextStyle(fontSize: 12),
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Home",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: "Search",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.photo_library_outlined),
-              label: "Coming Soon",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.download_rounded),
-              label: "Downloads",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.menu),
-              label: "More",
-            ),
-          ],
-        );
-      },
-    );
+          onTap: (index){
+           BlocProvider.of<BottomNavigationBloc>(context).add(Tabchange(tabIndex: index));
+          },
+          ),
+          
+      );
+    }, listener: (context,state){});
   }
 }
